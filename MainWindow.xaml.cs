@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kylosov.Classes.API;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace Kylosov
         public MainWindow()
         {
             InitializeComponent();
+
+            WeatherService x = new WeatherService("b67658a0befe082e75b3cec3ac90a91e");
         }
     }
 }
