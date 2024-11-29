@@ -26,7 +26,6 @@ namespace Kylosov.Classes
             _numberOfRequests = _database.NumberOfRequestsPerDay();
         }
 
-
         public async Task<List<Day>> Get5DayForecastByCityName(string cityName)
         {
             var days = new List<Day>();
