@@ -1,5 +1,7 @@
 ﻿using Kylosov.Classes.API;
 using Kylosov.Elements;
+using Kylosov.Classes.Database;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Kylosov.Classes;
 
 namespace Kylosov
 {
@@ -22,28 +25,21 @@ namespace Kylosov
     /// </summary>
     public partial class MainWindow : Window
     {
+        private WeatherManager _weatherManager;
         public MainWindow()
         {
             InitializeComponent();
+            _weatherManager = new WeatherManager();
         }
 
         private async void FindClick(object sender, RoutedEventArgs e)
         {
-            var forecast = await WeatherService.Get5DayForecastByCityName("Perm");
+            var city = City.Text;
 
-            foreach (var day in forecast)
+            var forecast = await _weatherManager.Get5DayForecastByCityName(city);
+            foreach (var day in forecast) 
             {
-                // Создаем WeatherElement для каждого дня
-                var weatherElement = new WeatherElement(
-                    day.Date,
-                    day.Morning,
-                    day.Afternoon,
-                    day.Evening,
-                    day.Night
-                );
-
-                // Добавляем элемент в родительский контейнер (например, StackPanel)
-                Parrent.Children.Add(weatherElement);
+                Parrent.Children.Add(new WeatherElement(day));
             }
         }
     }

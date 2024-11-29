@@ -22,40 +22,40 @@ namespace Kylosov.Elements
     /// </summary>
     public partial class WeatherElement : UserControl
     {
-        public WeatherElement(DateTime dateTime, WeatherData morning, WeatherData day, WeatherData evening, WeatherData night)
+        public WeatherElement(Day day)
         {
             InitializeComponent();
 
             // Устанавливаем дату
-            DateOfWeather.Text = dateTime.ToString("dd MMMM yyyy");
+            DateOfWeather.Text = $"{day.Date.ToString("dd MMMM")}";
 
             // Обработка данных для утреннего времени
-            WeatherMorning.Text = morning?.Temp != null ? $"{morning.Temp}°C" : "Нет данных";
-            WeatherTypeMorning.Text = morning?.Description ?? "Нет данных";
-            PressureMorning.Text = morning?.Pressure != null ? $"{morning.Pressure} гПа" : "Нет данных";
-            HumidityMorning.Text = morning?.Humidity != null ? $"{morning.Humidity}%" : "Нет данных";
-            WindMorning.Text = morning?.WindSpeed != null ? $"{morning.WindSpeed} м/с" : "Нет данных";
+            WeatherMorning.Text = day.Morning?.Temp != null ? $"{day.Morning.Temp}°C" : "Нет данных";
+            WeatherTypeMorning.Text =day.Morning?.Description ?? "Нет данных";
+            PressureMorning.Text =day.Morning?.Pressure != null ? $"{day.Morning.Pressure} гПа" : "Нет данных";
+            HumidityMorning.Text =day.Morning?.Humidity != null ? $"{day.Morning.Humidity}%" : "Нет данных";
+            WindMorning.Text =day.Morning?.WindSpeed != null ? $"{day.Morning.WindSpeed} м/с" : "Нет данных";
 
             // Обработка данных для дневного времени
-            WeatherDay.Text = day?.Temp != null ? $"{day.Temp}°C" : "Нет данных";
-            WeatherTypeDay.Text = day?.Description ?? "Нет данных";
-            PressureDay.Text = day?.Pressure != null ? $"{day.Pressure} гПа" : "Нет данных";
-            HumidityDay.Text = day?.Humidity != null ? $"{day.Humidity}%" : "Нет данных";
-            WindDay.Text = day?.WindSpeed != null ? $"{day.WindSpeed} м/с" : "Нет данных";
+            WeatherDay.Text = day.Afternoon?.Temp != null ? $"{day.Afternoon.Temp}°C" : "Нет данных";
+            WeatherTypeDay.Text = day.Afternoon?.Description ?? "Нет данных";
+            PressureDay.Text = day.Afternoon?.Pressure != null ? $"{day.Afternoon.Pressure} гПа" : "Нет данных";
+            HumidityDay.Text = day.Afternoon?.Humidity != null ? $"{day.Afternoon.Humidity}%" : "Нет данных";
+            WindDay.Text = day.Afternoon?.WindSpeed != null ? $"{day.Afternoon.WindSpeed} м/с" : "Нет данных";
 
             // Обработка данных для вечернего времени
-            WeatherEvening.Text = evening?.Temp != null ? $"{evening.Temp}°C" : "Нет данных";
-            WeatherTypeEvening.Text = evening?.Description ?? "Нет данных";
-            PressureEvening.Text = evening?.Pressure != null ? $"{evening.Pressure} гПа" : "Нет данных";
-            HumidityEvening.Text = evening?.Humidity != null ? $"{evening.Humidity}%" : "Нет данных";
-            WindEvening.Text = evening?.WindSpeed != null ? $"{evening.WindSpeed} м/с" : "Нет данных";
+            WeatherEvening.Text = day.Evening?.Temp != null ? $"{day.Evening.Temp}°C" : "Нет данных";
+            WeatherTypeEvening.Text = day.Evening?.Description ?? "Нет данных";
+            PressureEvening.Text = day.Evening?.Pressure != null ? $"{day.Evening.Pressure} гПа" : "Нет данных";
+            HumidityEvening.Text = day.Evening?.Humidity != null ? $"{day.Evening.Humidity}%" : "Нет данных";
+            WindEvening.Text = day.Evening?.WindSpeed != null ? $"{day.Evening.WindSpeed} м/с" : "Нет данных";
 
             // Обработка данных для ночного времени
-            WeatherNight.Text = night?.Temp != null ? $"{night.Temp}°C" : "Нет данных";
-            WeatherTypeNight.Text = night?.Description ?? "Нет данных";
-            PressureNight.Text = night?.Pressure != null ? $"{night.Pressure} гПа" : "Нет данных";
-            HumidityNight.Text = night?.Humidity != null ? $"{night.Humidity}%" : "Нет данных";
-            WindNight.Text = night?.WindSpeed != null ? $"{night.WindSpeed} м/с" : "Нет данных";
+            WeatherNight.Text = day.Night?.Temp != null ? $"{day.Night.Temp}°C" : "Нет данных";
+            WeatherTypeNight.Text = day.Night?.Description ?? "Нет данных";
+            PressureNight.Text = day.Night?.Pressure != null ? $"{day.Night.Pressure} гПа" : "Нет данных";
+            HumidityNight.Text = day.Night?.Humidity != null ? $"{day.Night.Humidity}%" : "Нет данных";
+            WindNight.Text = day.Night?.WindSpeed != null ? $"{day.Night.WindSpeed} м/с" : "Нет данных";
         }
     }
 

@@ -11,44 +11,51 @@ namespace Kylosov.Classes.API
     public class WeatherService
     {
         private static readonly HttpClient client = new HttpClient();
-        private const string apiKey = "c6bf980d1a8191e15b71f8fc5dae106e";  // Замените на ваш API ключ
+        private readonly string apiKey;  // Замените на ваш API ключ
 
         // Метод для получения прогноза на 5 дней по названию города (для бесплатного API)
-        public static async Task<List<Day>> Get5DayForecastByCityName(string cityName)
+        public async Task<List<Day>> Get5DayForecastByCityName(string cityName)
         {
-            var url = $"https://api.openweathermap.org/data/2.5/forecast?q={cityName}&appid={apiKey}&units=metric";
-            var response = await client.GetStringAsync(url);
-            var forecastData = JsonConvert.DeserializeObject<ForecastResponse>(response);
-
-            var days = new List<Day>();
-
-            // Группируем прогнозы по дням
-            foreach (var dayGroup in forecastData.List.GroupBy(f => UnixTimeToDateTime(f.dt).Date))
+            try
             {
-                var day = new Day
+                var url = $"https://api.openweathermap.org/data/2.5/forecast?q={cityName}&appid={apiKey}&units=metric";
+                var response = await client.GetStringAsync(url);
+                var forecastData = JsonConvert.DeserializeObject<ForecastResponse>(response);
+
+                var days = new List<Day>();
+
+                // Группируем прогнозы по дням
+                foreach (var dayGroup in forecastData.List.GroupBy(f => UnixTimeToDateTime(f.dt).Date))
                 {
-                    Date = dayGroup.Key,
-                    Morning = GetWeatherForTimeOfDay(dayGroup, new[] { 6, 9 }), // Утро: 6:00 и 9:00
-                    Afternoon = GetWeatherForTimeOfDay(dayGroup, new[] { 12, 15 }), // День: 12:00 и 15:00
-                    Evening = GetWeatherForTimeOfDay(dayGroup, new[] { 18, 21 }), // Вечер: 18:00 и 21:00
-                    Night = GetWeatherForTimeOfDay(dayGroup, new[] { 0, 3 }) // Ночь: 0:00 и 3:00
-                };
+                    var day = new Day
+                    {
+                        Date = dayGroup.Key,
+                        Morning = GetWeatherForTimeOfDay(dayGroup, new[] { 6, 9 }), // Утро: 6:00 и 9:00
+                        Afternoon = GetWeatherForTimeOfDay(dayGroup, new[] { 12, 15 }), // День: 12:00 и 15:00
+                        Evening = GetWeatherForTimeOfDay(dayGroup, new[] { 18, 21 }), // Вечер: 18:00 и 21:00
+                        Night = GetWeatherForTimeOfDay(dayGroup, new[] { 0, 3 }) // Ночь: 0:00 и 3:00
+                    };
 
-                days.Add(day);
+                    days.Add(day);
+                }
+
+                return days;
             }
-
-            return days;
+            catch
+            {
+                return default;
+            }
         }
 
         // Преобразование времени из Unix в DateTime
-        private static DateTime UnixTimeToDateTime(long unixTime)
+        private DateTime UnixTimeToDateTime(long unixTime)
         {
             var dateTimeOffset = DateTimeOffset.FromUnixTimeSeconds(unixTime);
             return dateTimeOffset.DateTime;
         }
 
         // Метод для получения данных для определённых временных точек
-        private static WeatherData GetWeatherForTimeOfDay(IEnumerable<Forecast> forecasts, int[] hours)
+        private WeatherData GetWeatherForTimeOfDay(IEnumerable<Forecast> forecasts, int[] hours)
         {
             var forecast = forecasts
                 .FirstOrDefault(f => hours.Contains(UnixTimeToDateTime(f.dt).Hour));
@@ -64,6 +71,11 @@ namespace Kylosov.Classes.API
                 Humidity = forecast.main.humidity,
                 Pressure = forecast.main.pressure
             };
+        }
+
+        public WeatherService(string apiKey)
+        {
+            this.apiKey = apiKey;
         }
     }
 }
