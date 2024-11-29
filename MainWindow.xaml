@@ -13,8 +13,10 @@
         </Grid.RowDefinitions>
 
         <TextBox x:Name="City" Margin="10,0,110,10" HorizontalAlignment="Stretch" Height="40" VerticalAlignment="Bottom" Grid.Row="0" FontSize="16px"/>
-        <Button Content="Найти" Margin="0,10,10,10" Height="40" Width="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="0" FontSize="16px"/>
+        <Button Content="Найти" Margin="0,10,10,10" Height="40" Width="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="0" FontSize="16px" Click="FindClick"/>
 
-        <StackPanel x:Name="Parrent"/>
+        <ScrollViewer  Grid.Row="1">
+            <StackPanel x:Name="Parrent"/>
+        </ScrollViewer>
     </Grid>
 </Window>

@@ -24,34 +24,35 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="29 ноября" Margin="10" x:Name="DateOfWeather"/>
+
             <TextBlock Text="Погода утром: -1..+1" Margin="10" x:Name="WeatherMorning" Grid.Row="1"/>
-            <TextBlock Text="Погода днём: -1..+1" Margin="10" x:Name="WeatherDay"  Grid.Row="2"/>
-            <TextBlock Text="Погода вечером: -1..+1" Margin="10" x:Name="WeatherEvening"  Grid.Row="3"/>
-            <TextBlock Text="Погода ночью: -1..+1" Margin="10" x:Name="WeatherNight"  Grid.Row="4"/>
+            <TextBlock Text="Погода днём: -1..+1" Margin="10" x:Name="WeatherDay" Grid.Row="2"/>
+            <TextBlock Text="Погода вечером: -1..+1" Margin="10" x:Name="WeatherEvening" Grid.Row="3"/>
+            <TextBlock Text="Погода ночью: -1..+1" Margin="10" x:Name="WeatherNight" Grid.Row="4"/>
 
             <TextBlock Text="Тип погоды" Margin="10" Grid.Column="1"/>
-            <TextBlock Text="Пасмурно" Margin="10" Grid.Row="1" Grid.Column="1"/>
-            <TextBlock Text="Небольшой снег" Margin="10"  Grid.Row="2" Grid.Column="1"/>
-            <TextBlock Text="Облачно с прояснениями" Margin="10"  Grid.Row="3" Grid.Column="1"/>
-            <TextBlock Text="Небольшой снег" Margin="10"  Grid.Row="4" Grid.Column="1"/>
+            <TextBlock Text="Пасмурно" Margin="10" Grid.Row="1" Grid.Column="1" x:Name="WeatherTypeMorning"/>
+            <TextBlock Text="Небольшой снег" Margin="10" Grid.Row="2" Grid.Column="1" x:Name="WeatherTypeDay"/>
+            <TextBlock Text="Облачно с прояснениями" Margin="10" Grid.Row="3" Grid.Column="1" x:Name="WeatherTypeEvening"/>
+            <TextBlock Text="Небольшой снег" Margin="10" Grid.Row="4" Grid.Column="1" x:Name="WeatherTypeNight"/>
 
-            <TextBlock Text="Давление,мм рт. ст." Margin="10"  Grid.Column="2"/>
-            <TextBlock Text="756" Margin="10" Grid.Row="1" Grid.Column="2"/>
-            <TextBlock Text="754" Margin="10"  Grid.Row="2" Grid.Column="2"/>
-            <TextBlock Text="752" Margin="10"  Grid.Row="3" Grid.Column="2"/>
-            <TextBlock Text="750" Margin="10"  Grid.Row="4" Grid.Column="2"/>
+            <TextBlock Text="Давление, мм рт. ст." Margin="10" Grid.Column="2"/>
+            <TextBlock Text="756" Margin="10" Grid.Row="1" Grid.Column="2" x:Name="PressureMorning"/>
+            <TextBlock Text="754" Margin="10" Grid.Row="2" Grid.Column="2" x:Name="PressureDay"/>
+            <TextBlock Text="752" Margin="10" Grid.Row="3" Grid.Column="2" x:Name="PressureEvening"/>
+            <TextBlock Text="750" Margin="10" Grid.Row="4" Grid.Column="2" x:Name="PressureNight"/>
 
             <TextBlock Text="Влажность" Margin="10" Grid.Column="3"/>
-            <TextBlock Text="91%" Margin="10" Grid.Row="1" Grid.Column="3"/>
-            <TextBlock Text="91%" Margin="10"  Grid.Row="2" Grid.Column="3"/>
-            <TextBlock Text="91%" Margin="10"  Grid.Row="3" Grid.Column="3"/>
-            <TextBlock Text="91%" Margin="10"  Grid.Row="4" Grid.Column="3"/>
+            <TextBlock Text="91%" Margin="10" Grid.Row="1" Grid.Column="3" x:Name="HumidityMorning"/>
+            <TextBlock Text="91%" Margin="10" Grid.Row="2" Grid.Column="3" x:Name="HumidityDay"/>
+            <TextBlock Text="91%" Margin="10" Grid.Row="3" Grid.Column="3" x:Name="HumidityEvening"/>
+            <TextBlock Text="91%" Margin="10" Grid.Row="4" Grid.Column="3" x:Name="HumidityNight"/>
 
             <TextBlock Text="Ветер, м/с" Margin="10" Grid.Column="4"/>
-            <TextBlock Text="1,8" Margin="10" Grid.Row="1" Grid.Column="4"/>
-            <TextBlock Text="1,8" Margin="10"  Grid.Row="2" Grid.Column="4"/>
-            <TextBlock Text="1,8" Margin="10"  Grid.Row="3" Grid.Column="4"/>
-            <TextBlock Text="1,8" Margin="10"  Grid.Row="4" Grid.Column="4"/>
+            <TextBlock Text="1,8" Margin="10" Grid.Row="1" Grid.Column="4" x:Name="WindMorning"/>
+            <TextBlock Text="1,8" Margin="10" Grid.Row="2" Grid.Column="4" x:Name="WindDay"/>
+            <TextBlock Text="1,8" Margin="10" Grid.Row="3" Grid.Column="4" x:Name="WindEvening"/>
+            <TextBlock Text="1,8" Margin="10" Grid.Row="4" Grid.Column="4" x:Name="WindNight"/>
         </Grid>
     </Border>
 </UserControl>

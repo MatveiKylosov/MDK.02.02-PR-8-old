@@ -70,12 +70,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Classes\API\CurrentWeatherResponse.cs" />
-    <Compile Include="Classes\API\ForecastItem.cs" />
-    <Compile Include="Classes\API\ForecastWeatherResponse.cs" />
-    <Compile Include="Classes\API\MainWeather.cs" />
+    <Compile Include="Classes\API\Day.cs" />
+    <Compile Include="Classes\API\Forecast.cs" />
+    <Compile Include="Classes\API\ForecastResponse.cs" />
+    <Compile Include="Classes\API\Main.cs" />
     <Compile Include="Classes\API\Weather.cs" />
+    <Compile Include="Classes\API\WeatherData.cs" />
     <Compile Include="Classes\API\WeatherService.cs" />
+    <Compile Include="Classes\API\Wind.cs" />
     <Compile Include="Elements\WeatherElement.xaml.cs">
       <DependentUpon>WeatherElement.xaml</DependentUpon>
     </Compile>

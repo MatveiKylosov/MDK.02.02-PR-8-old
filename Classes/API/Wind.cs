@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Kylosov.Classes.API
 {
-    public class Weather
+    public class Wind
     {
-        public string description { get; set; }
+        public double speed { get; set; }
+        public int deg { get; set; }
     }
 }

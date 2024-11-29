@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Kylosov.Classes.API
 {
-    public class Weather
+    public class ForecastResponse
     {
-        public string description { get; set; }
+        public Forecast[] List { get; set; }
     }
 }

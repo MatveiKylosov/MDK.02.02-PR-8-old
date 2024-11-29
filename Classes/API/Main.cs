@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Kylosov.Classes.API
 {
-    public class Weather
+    public class Main
     {
-        public string description { get; set; }
+        public double temp { get; set; }
+        public int humidity { get; set; }
+        public int pressure { get; set; }
     }
 }

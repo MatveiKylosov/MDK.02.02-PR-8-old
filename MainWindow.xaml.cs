@@ -1,4 +1,5 @@
 ﻿using Kylosov.Classes.API;
+using Kylosov.Elements;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,26 @@ namespace Kylosov
         public MainWindow()
         {
             InitializeComponent();
+        }
 
-            WeatherService x = new WeatherService("b67658a0befe082e75b3cec3ac90a91e");
+        private async void FindClick(object sender, RoutedEventArgs e)
+        {
+            var forecast = await WeatherService.Get5DayForecastByCityName("Perm");
+
+            foreach (var day in forecast)
+            {
+                // Создаем WeatherElement для каждого дня
+                var weatherElement = new WeatherElement(
+                    day.Date,
+                    day.Morning,
+                    day.Afternoon,
+                    day.Evening,
+                    day.Night
+                );
+
+                // Добавляем элемент в родительский контейнер (например, StackPanel)
+                Parrent.Children.Add(weatherElement);
+            }
         }
     }
 }
