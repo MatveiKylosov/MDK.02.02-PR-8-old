@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="Kylosov.Elements.WeatherElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Kylosov.Elements"
+             mc:Ignorable="d">
+    <Border BorderBrush="Black" BorderThickness="0.5px" Padding="10px">
+        <Grid Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="29 ноября" Margin="10" x:Name="DateOfWeather"/>
+            <TextBlock Text="Погода утром: -1..+1" Margin="10" x:Name="WeatherMorning" Grid.Row="1"/>
+            <TextBlock Text="Погода днём: -1..+1" Margin="10" x:Name="WeatherDay"  Grid.Row="2"/>
+            <TextBlock Text="Погода вечером: -1..+1" Margin="10" x:Name="WeatherEvening"  Grid.Row="3"/>
+            <TextBlock Text="Погода ночью: -1..+1" Margin="10" x:Name="WeatherNight"  Grid.Row="4"/>
+
+            <TextBlock Text="Тип погоды" Margin="10" Grid.Column="1"/>
+            <TextBlock Text="Пасмурно" Margin="10" Grid.Row="1" Grid.Column="1"/>
+            <TextBlock Text="Небольшой снег" Margin="10"  Grid.Row="2" Grid.Column="1"/>
+            <TextBlock Text="Облачно с прояснениями" Margin="10"  Grid.Row="3" Grid.Column="1"/>
+            <TextBlock Text="Небольшой снег" Margin="10"  Grid.Row="4" Grid.Column="1"/>
+
+            <TextBlock Text="Давление,мм рт. ст." Margin="10"  Grid.Column="2"/>
+            <TextBlock Text="756" Margin="10" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock Text="754" Margin="10"  Grid.Row="2" Grid.Column="2"/>
+            <TextBlock Text="752" Margin="10"  Grid.Row="3" Grid.Column="2"/>
+            <TextBlock Text="750" Margin="10"  Grid.Row="4" Grid.Column="2"/>
+
+            <TextBlock Text="Влажность" Margin="10" Grid.Column="3"/>
+            <TextBlock Text="91%" Margin="10" Grid.Row="1" Grid.Column="3"/>
+            <TextBlock Text="91%" Margin="10"  Grid.Row="2" Grid.Column="3"/>
+            <TextBlock Text="91%" Margin="10"  Grid.Row="3" Grid.Column="3"/>
+            <TextBlock Text="91%" Margin="10"  Grid.Row="4" Grid.Column="3"/>
+
+            <TextBlock Text="Ветер, м/с" Margin="10" Grid.Column="4"/>
+            <TextBlock Text="1,8" Margin="10" Grid.Row="1" Grid.Column="4"/>
+            <TextBlock Text="1,8" Margin="10"  Grid.Row="2" Grid.Column="4"/>
+            <TextBlock Text="1,8" Margin="10"  Grid.Row="3" Grid.Column="4"/>
+            <TextBlock Text="1,8" Margin="10"  Grid.Row="4" Grid.Column="4"/>
+        </Grid>
+    </Border>
+</UserControl>

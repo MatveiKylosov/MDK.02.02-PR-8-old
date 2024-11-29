@@ -16,7 +16,5 @@
         <Button Content="Найти" Margin="0,10,10,10" Height="40" Width="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="0" FontSize="16px"/>
 
         <StackPanel x:Name="Parrent"/>
-
-
     </Grid>
 </Window>
